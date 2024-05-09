@@ -6,7 +6,7 @@ let http = require('http');
 
 /* Assume that we are running on Heroku */
 let port = process.env.PORT;
-let directory = ___dirname + '/public';
+let directory = __dirname + '/public';
 
 /* If we arern't on Heroku, then we need to adjust our port and directory */
 if ((typeof port == 'undefined') || ( port == null)) {
