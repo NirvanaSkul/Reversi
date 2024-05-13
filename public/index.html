@@ -14,6 +14,15 @@
             background-color: lightgreen;
         }
 </style>
+
+<script>
+  function goToLobby(){
+    let username = $('#nameInput').val();
+    window.location.href = "lobby.html?username="+username;
+  }
+</script>
+
+
   <title>Reversi</title>
 </head>
 
@@ -45,7 +54,7 @@
           <span class="input-group-text" id="displayName">Name</span>
           <input type="text" class="form-conteol text-nowrap" id="nameInput" placeholder="Choose Your Display Name"
             aria-label="Enter your display name for use while playing Reversi" aria-describedby="displayName" />
-          <button type="submit" class="btn-primary text-nowrap" id="lobbyButton" onclick="window.location='lobby.html'">Enter
+          <button type="submit" class="btn-primary text-nowrap" id="lobbyButton" onclick="goToLobby()">Enter
             Lobby</button>
 
         </div>
@@ -66,6 +75,7 @@
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" crossorigin="anonymous"></script>
 
 </body>
 
