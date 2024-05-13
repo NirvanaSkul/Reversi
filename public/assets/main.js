@@ -16,4 +16,4 @@ if ((typeof username == 'undefined') || (username === null)){
     username = "Anonymous_"+Math.floor(Math.random()*1000);
 }
 
-$('#some').prepend('<b>'+username+':</b>');
+$('#messages').prepend('<b>'+username+':</b>');
