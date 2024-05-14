@@ -13,6 +13,16 @@
         .headerrow {
             background-color: lightgreen;
         }
+
+        .join_room_response {
+            background-color: gray;
+            margin: 1px 1px 1px;
+        }
+        .chat_message {
+            font-size: 125%;
+            margin: 1px 1px 1px 1px;
+            color: purple;
+        }
     </style>
 
 
@@ -30,6 +40,19 @@
 
     <div class="row m-3">
         <div class="col">
+
+            <div class="row align-item-center justify-content-center m-3">
+                <div class="col-4">
+                  <div class="input-group">
+
+                    <input type="text" class="form-control text-nowrap" id="chatMessage" placeholder="Enter your message here"
+                      aria-label="Enter your message to send to the chat room"/>
+                    <button type="submit" class="btn-primary text-nowrap" id="chatButton" onclick="sendChatMessage()">Send</button>
+          
+                  </div>
+                </div>
+              </div>
+            
             <h4>Messages</h4>
             <div id="messages">
             </div>
@@ -45,6 +68,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js" integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4" crossorigin="anonymous"></script>
     <script src="assets/main.js"></script>
 </body >
 
