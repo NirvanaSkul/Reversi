@@ -405,9 +405,9 @@ io.on('connection', (socket) => {
     socket.on('send_chat_message', (payload) => {
         serverLog('Server received a command', '\'send_chat_message\'', JSON.stringify(payload));
 
-        
+        let response = {}; // Define response object here
+
         if (typeof payload === 'undefined' || payload === null) {
-            response = {};
             response.result = 'fail';
             response.message = 'client did not send a payload';
             socket.emit('send_chat_message_response', response);
@@ -420,7 +420,6 @@ io.on('connection', (socket) => {
         let message = payload.message; // Extract message from payload
 
         if (typeof room === 'undefined' || room === null) {
-            response = {};
             response.result = 'fail';
             response.message = 'client did not send a valid room to message';
             socket.emit('send_chat_message_response', response);
@@ -429,7 +428,6 @@ io.on('connection', (socket) => {
         }
 
         if (typeof username === 'undefined' || username === null) {
-            response = {};
             response.result = 'fail';
             response.message = 'client did not send a valid username as a message source';
             socket.emit('send_chat_message_response', response);
@@ -438,7 +436,6 @@ io.on('connection', (socket) => {
         }
 
         if (typeof message === 'undefined' || message === null) {
-            response = {};
             response.result = 'fail';
             response.message = 'client did not send a valid message';
             socket.emit('send_chat_message_response', response);
@@ -447,7 +444,6 @@ io.on('connection', (socket) => {
         }
 
         /* Handle the command */
-        let response = {};
         response.result = 'success';
         response.username = username;
         response.room = room;
@@ -631,11 +627,10 @@ function send_game_update(socket, game_id, message) {
     
                     console.log("Kicking " + first + " out of game:" + game_id);
                     io.in(first).socketsLeave([game_id]);
-                } 
+                }
             }
         }
-
-       if (sockets.size >= 2) {
+        if (sockets.size >= 2) {
         let second = iterator.next().value;
         if ((games[game_id].player_white.socket != second) &&
             (games[game_id].player_black.socket != second)) {
@@ -685,7 +680,7 @@ if (count === 64) {
         who_won: 'everyone'
     }
     io.in(game_id).emit('game_over',payload);
-   
+
 
     setTimeout(
         ((id) => {

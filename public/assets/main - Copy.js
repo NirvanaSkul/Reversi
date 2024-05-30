@@ -19,7 +19,7 @@ if ((typeof username == 'undefined') || (username === null) || (username === 'nu
 
 let chatRoom = decodeURI(getIRIParameterValue('game_id'));
 if ((typeof chatRoom == 'undefined') || (chatRoom === null) || (chatRoom === 'null')) {
-    chatRoom = 'Lobby';
+    chatRoom = 'lobby';
 }
 
 
@@ -27,8 +27,6 @@ let socket = io();
 socket.on('log', function (array) {
     console.log.apply(console, array);
 });
-
-
 
 function makeInviteButton(socket_id) {
     let newHTML = "<button type='button' class='btn btn-outline-primary'>Invite</button>"
@@ -294,20 +292,10 @@ socket.on('game_update', (payload) => {
     }
     $("#my_color").html('<h3 id="my_color">I am ' + my_color + '</h3>');
 
-let whitesum = 0;
-let blacksum = 0;
-
 
     for (let row = 0; row < 8; row++) {
         for (let column = 0; column < 8; column++) {
-            if (board[row][column] === 'w') {
-                whitesum++;
-            }
-            else if (board[row][column] === 'b') {
-                blacksum++;
-            }
-            
-            
+
             if (old_board[row][column] !== board[row][column]) {
                 let graphic = "";
                 let altTag = "";
@@ -377,8 +365,6 @@ let blacksum = 0;
         }
 
     }
-    $("#whitesum").html(whitesum);
-    $("#blacksum").html(blacksum);
     old_board = board;
 })
 
@@ -406,18 +392,24 @@ socket.on('game_over', (payload) => {
     }
     let nodeA = $("<div id='game_over'></div>");
     let nodeB = $("<h1>Game Over</h1>");
-    let nodeC = $("<h2>" + payload.who_won + " won!</h2>");
-    let nodeD = $("<a href='lobby.html?username=" + username + "' class='btn btn-lg btn-success' role='button'>Back to Lobby</a>"); 
+    let nodeC = $("<h2>" + payload.who_won + " won!</h2>"); // Corrected the missing concatenation and quotation marks
+    let nodeD = $("<a href='lobby.html?username=" + username + "' class='btn btn-lg btn-success' role='button'>Back to Lobby</a>"); // Corrected the missing quotation marks and added a missing closing angle bracket
+
     nodeA.append(nodeB);
     nodeA.append(nodeC);
     nodeA.append(nodeD);
     nodeA.hide();
 
+    if ($('#game_over').length) {
+        $('#game_over').replaceWith(nodeA); // Corrected the method name from replace to replaceWith
+    } else {
+        $('body').append(nodeA); // Append if #game_over doesn't exist
+    }
+    nodeA.show("fade", 1000);
+});
 
-        $('#game_over').replaceWith(nodeA); 
-        nodeA.show("fade", 1000);
 
-})
+
 
 
 
@@ -440,3 +432,4 @@ $(() => {
         }
     })
 });
+

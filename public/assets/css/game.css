@@ -1,0 +1,40 @@
+body {
+    background-color: rgb(136, 136, 136);
+}
+
+.headerrow, #messagePane {
+    background-color: rgb(255, 0, 0);
+}
+
+.join_room_response,
+.left_room_response {
+    background-color: rgb(255, 236, 94);
+}
+
+.chat_message {
+    font-size: 125%;
+    margin: 1px 1px 1px 1px;
+    color: rgb(133, 251, 255);
+}
+
+td.hovered_over:hover {
+    z-index: 999;
+    background-image: url('hover.gif'); /* Change to desired background color */
+    /* Add any other styles you want to apply on hover */
+}
+
+table#game_board {
+    border: 4px solid black;
+    margin: 0px;
+    padding: 0px;
+}
+
+table#game_board td {
+    border: 1px solid black;
+    margin: 0px;
+    padding: 0px;
+}
+
+img {
+    opacity: 80%;
+}
