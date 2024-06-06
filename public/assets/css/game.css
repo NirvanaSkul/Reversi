@@ -9,9 +9,9 @@ body {
   }
 
   h2{
-        background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
-        -webkit-background-clip: text;
-        color: transparent;
+        
+
+        color: cyan;
   }
 
   h1,h3{
@@ -50,9 +50,11 @@ body {
   }
   
   table#game_board td {
+        background-color: gray;
       border: 1px solid black;
       margin: 0px;
       padding: 0px;
+      opacity: 85%;
   }
   
   img {
