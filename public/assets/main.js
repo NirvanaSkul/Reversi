@@ -357,11 +357,11 @@ socket.on('game_update', (payload) => {
                 }
                 else if ((old_board[row][column] === 'w') && (board[row][column] === 'b')) {
                     graphic = "wtb.gif";
-                    altTag = "wtb";
+                    altTag = "etb";
                 }
                 else if ((old_board[row][column] === 'b') && (board[row][column] === 'w')) {
                     graphic = "btw.gif";
-                    altTag = "btw";
+                    altTag = "etw";
                 }
                 else {
                     graphic = "error.gif";
