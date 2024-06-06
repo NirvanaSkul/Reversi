@@ -356,7 +356,7 @@ socket.on('game_update', (payload) => {
                     altTag = "empty space";
                 }
                 else if ((old_board[row][column] === 'w') && (board[row][column] === 'b')) {
-                    graphic = "wtb.gif";
+                    graphic = "assets\images\wtb.gif";
                     altTag = "black token";
                 }
                 else if ((old_board[row][column] === 'b') && (board[row][column] === 'w')) {
