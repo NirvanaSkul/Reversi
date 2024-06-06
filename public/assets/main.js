@@ -356,11 +356,11 @@ socket.on('game_update', (payload) => {
                     altTag = "empty space";
                 }
                 else if ((old_board[row][column] === 'w') && (board[row][column] === 'b')) {
-                    graphic = "wtb.gif";
+                    graphic = "etb.gif";
                     altTag = "etb";
                 }
                 else if ((old_board[row][column] === 'b') && (board[row][column] === 'w')) {
-                    graphic = "btw.gif";
+                    graphic = "etw.gif";
                     altTag = "etw";
                 }
                 else {
